@@ -1,19 +1,18 @@
 using StatePattern.Main;
 using StatePattern.Player;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
+using StatePattern.StateMachine;
 
 namespace StatePattern.Enemy
 {
     public class ShootingState : IState
     {
-        public OnePunchManController Owner { get; set; }
-        private OnePunchManStateMachine stateMachine;
+        public EnemyController Owner { get; set; }
+        private IStateMachine stateMachine;
         private PlayerController target;
         private float shootTimer;
 
-        public ShootingState(OnePunchManStateMachine stateMachine) => this.stateMachine = stateMachine;
+        public ShootingState(IStateMachine onePunchManStateMachine) => this.stateMachine = onePunchManStateMachine;
 
         public void OnStateEnter()
         {
@@ -26,7 +25,7 @@ namespace StatePattern.Enemy
             Quaternion desiredRotation = CalculateRotationTowardsPlayer();
             Owner.SetRotation(RotateTowards(desiredRotation));
 
-            if(IsRotationComplete(desiredRotation))
+            if (IsRotationComplete(desiredRotation))
             {
                 shootTimer -= Time.deltaTime;
                 if (shootTimer <= 0)
@@ -55,3 +54,4 @@ namespace StatePattern.Enemy
         private void ResetTimer() => shootTimer = Owner.Data.RateOfFire;
     }
 }
+
