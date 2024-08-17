@@ -24,7 +24,7 @@ namespace StatePattern.Enemy
 
         private void SetOwner()
         {
-            foreach(IState state in States.Values)
+            foreach (IState state in States.Values)
             {
                 state.Owner = Owner;
             }
@@ -41,11 +41,5 @@ namespace StatePattern.Enemy
 
         public void ChangeState(OnePunchManStates newState) => ChangeState(States[newState]);
     }
-
-    public enum OnePunchManStates
-    {
-        IDLE,
-        ROTATING,
-        SHOOTING
-    }
 }
+
