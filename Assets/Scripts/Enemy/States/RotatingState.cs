@@ -15,6 +15,7 @@ namespace StatePattern.Enemy
 
         public void Update()
         {
+            // Calculate and set the character's rotation based on the target rotation.
             Owner.SetRotation(CalculateRotation());
             if (IsRotationComplete())
                 stateMachine.ChangeState(States.IDLE);
@@ -27,3 +28,4 @@ namespace StatePattern.Enemy
         private bool IsRotationComplete() => Mathf.Abs(Mathf.Abs(Owner.Rotation.eulerAngles.y) - Mathf.Abs(targetRotation)) < Owner.Data.RotationThreshold;
     }
 }
+
