@@ -4,7 +4,6 @@
     {
         OnePunchMan,
         PatrolMan,
-        DashMan,
         Hitman,
         Robot
     }

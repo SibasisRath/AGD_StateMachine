@@ -1,6 +1,6 @@
-using StatePattern.Player;
-using StatePattern.StateMachine;
+﻿using StatePattern.StateMachine;
 using System.Collections.Generic;
+using UnityEngine;
 
 namespace StatePattern.Enemy
 {
@@ -20,7 +20,6 @@ namespace StatePattern.Enemy
         private void CreateStates()
         {
             States.Add(StateMachine.States.IDLE, new IdleState(this));
-            States.Add(StateMachine.States.ROTATING, new RotatingState(this));
             States.Add(StateMachine.States.PATROLLING, new PatrollingState(this));
             States.Add(StateMachine.States.CHASING, new ChasingState(this));
             States.Add(StateMachine.States.SHOOTING, new ShootingState(this));
@@ -46,5 +45,3 @@ namespace StatePattern.Enemy
         public void ChangeState(States newState) => ChangeState(States[newState]);
     }
 }
-
-

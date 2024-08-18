@@ -7,7 +7,7 @@ namespace StatePattern.Enemy
     {
         private OnePunchManController Owner;
         private IState currentState;
-        protected Dictionary<States, IState> OnePunchManStates = new Dictionary<States, IState>();
+        protected Dictionary<States, IState> States = new Dictionary<States, IState>();
 
         public OnePunchManStateMachine(OnePunchManController Owner)
         {
@@ -18,14 +18,14 @@ namespace StatePattern.Enemy
 
         private void CreateStates()
         {
-            OnePunchManStates.Add(States.IDLE, new IdleState(this));
-            OnePunchManStates.Add(States.ROTATING, new RotatingState(this));
-            OnePunchManStates.Add(States.SHOOTING, new ShootingState(this));
+            States.Add(StateMachine.States.IDLE, new IdleState(this));
+            States.Add(StateMachine.States.ROTATING, new RotatingState(this));
+            States.Add(StateMachine.States.SHOOTING, new ShootingState(this));
         }
 
         private void SetOwner()
         {
-            foreach (IState state in OnePunchManStates.Values)
+            foreach (IState state in States.Values)
             {
                 state.Owner = Owner;
             }
@@ -40,7 +40,6 @@ namespace StatePattern.Enemy
             currentState?.OnStateEnter();
         }
 
-        public void ChangeState(States newState) => ChangeState(OnePunchManStates[newState]);
+        public void ChangeState(States newState) => ChangeState(States[newState]);
     }
 }
-

@@ -1,3 +1,7 @@
+using UnityEngine;
+using StatePattern.StateMachine;
+using StatePattern.Enemy.Bullet;
+using StatePattern.Main;
 using StatePattern.Player;
 using StatePattern.StateMachine;
 

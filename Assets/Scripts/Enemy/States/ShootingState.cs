@@ -1,5 +1,6 @@
 using StatePattern.Main;
 using StatePattern.Player;
+using StatePattern.StateMachine;
 using UnityEngine;
 using StatePattern.StateMachine;
 
@@ -12,7 +13,7 @@ namespace StatePattern.Enemy
         private PlayerController target;
         private float shootTimer;
 
-        public ShootingState(IStateMachine onePunchManStateMachine) => this.stateMachine = onePunchManStateMachine;
+        public ShootingState(IStateMachine stateMachine) => this.stateMachine = stateMachine;
 
         public void OnStateEnter()
         {
