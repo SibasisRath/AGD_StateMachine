@@ -1,6 +1,6 @@
 namespace StatePattern.StateMachine
 {
-    public enum States 
+    public enum States
     {
         IDLE,
         ROTATING,
@@ -9,4 +9,3 @@ namespace StatePattern.StateMachine
         CHASING
     }
 }
-
