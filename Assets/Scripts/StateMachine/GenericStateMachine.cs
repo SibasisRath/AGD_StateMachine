@@ -1,9 +1,7 @@
-using StatePattern.StateMachine;
-using System.Collections;
+using StatePattern.Enemy;
 using System.Collections.Generic;
-using UnityEngine;
 
-namespace StatePattern.Enemy
+namespace StatePattern.StateMachine
 {
     public class GenericStateMachine<T> where T : EnemyController
     {
