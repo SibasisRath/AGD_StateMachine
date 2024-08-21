@@ -61,7 +61,7 @@ namespace StatePattern.Enemy
 
         public void SetRotation(Quaternion desiredRotation) => enemyView.transform.rotation = desiredRotation;
 
-        public void ToggleEnemyColor(bool value)=>  enemyView.ToggleColor(value);
+        public void ToggleEnemyColor(EnemyColorType value)=>  enemyView.ChangeColor(value);
         
 
         public virtual void Shoot()
